@@ -36,3 +36,14 @@ def shuffle(lst: list) -> list:
         index_element = rnd.randint(0, len(lst) - i)
         lst = lst[:index_element] + lst[index_element+1:] + [lst[index_element]]
     return lst
+
+def is_truly_sorted(lst: list) -> bool:
+    """
+    Checks if a list is sorted (low to high), no doubles
+    :param lst: list (only int/flt)
+    :return: boolean
+    """
+    for i in range(len(lst)-1):
+        if lst[i+1] < lst[i]:
+            return False
+    return True
