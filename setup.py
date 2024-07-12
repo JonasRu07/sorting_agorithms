@@ -11,6 +11,7 @@ def ordered_list(starting_value: int, length: int) -> list:
         lst.append(i)
     return lst
 
+
 def mix(lst: list) -> list:
     """
     Takes a list and rearranges the elements in a random order
@@ -22,4 +23,16 @@ def mix(lst: list) -> list:
     for i in range(0, len(lst)):
         ret_lst.append(lst.pop(rnd.randint(0, len(lst) - 1)))
 
-    return ret_lst
+    return ret_lst#
+
+
+def shuffle(lst: list) -> list:
+    """
+    Takes a list and shuffles the item in a random order
+    :param lst: any list with any elements, only one Dimension will be shuffled
+    :return: list
+    """
+    for i in range(1, len(lst)):
+        index_element = rnd.randint(0, len(lst) - i)
+        lst = lst[:index_element] + lst[index_element+1:] + [lst[index_element]]
+    return lst
