@@ -1,3 +1,4 @@
+import random as rnd
 
 def ordered_list(starting_value: int, length: int) -> list:
     """
