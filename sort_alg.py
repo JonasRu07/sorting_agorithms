@@ -1,3 +1,10 @@
+"""
+Module with different sorting algorithms
+they are either based on theoretical algorithms(named after
+that theory), or based on feeling
+
+"""
+
 def insertion(lst: list) -> list:
     """
     Takes an unordered list and sorts it via an insertion sort inspired algorithm.
