@@ -1,0 +1,49 @@
+import random as rnd
+
+def selection_sort(lst: list) -> list:
+    """
+    Sorts the a list in a rising order
+    :param lst: an unordered list consisting of numbers (int)
+    :return list
+    """
+    ret_lst = []
+    for i in range(0, len(lst)):
+        index_value = lst[0]
+        for n in range(0, len(lst)):
+            if lst[n] < index_value:
+                index_value = lst[n]
+        lst.remove(index_value)
+        ret_lst.append(index_value)
+    return ret_lst
+        
+def ordered_list(starting_value: int, length: int) -> list:
+    """
+    Creates am ordered list with a given length, beginning at a given value
+    :param starting_value: first (smallest) number in the list
+    :param length: How many elements there are in the list
+    :return list
+    """
+    lst = []
+    for i in range(starting_value, starting_value + length):
+        lst.append(i)
+    return lst
+
+
+def mix(lst: list) -> list:
+    """
+    Takes a list and rearranges the elements in a random order
+    USES AND AUXILIARY ARRAY
+    :param lst: any list with any elements, only one Dimension will be shuffled
+    :return: list
+    """
+    ret_lst = []
+    for i in range(0, len(lst)):
+        ret_lst.append(lst.pop(rnd.randint(0, len(lst) - 1)))
+
+    return ret_lst
+
+list_ = ordered_list(1, 10)
+list_ = mix(list_)
+print(list_)
+list_ = selection_sort(list_)
+print(list_)
