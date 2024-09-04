@@ -12,6 +12,25 @@ def insertion(lst: list) -> list:
     :param lst: a list out of numbers (int and/or flt)
     :return: list
     """
+    def insertion_sort(lst: list) -> list:
+    list_ = lst
+    for i in range(0, len(list_)):
+        item = list_[i]
+        for j in range(0, i):
+            if item < list_[j]:
+                list_.remove(item)
+                list_ = list_[:j] + [item] + list_[j:]
+                break
+    return list_
+
+
+def unnamed(lst: list) -> list:
+    """
+    Takes an unordered list and sorts it. Idk what alg used; REASEARCH NEEDED
+    It currently only works with only number-lists
+    :param lst: a list out of numbers (int and/or flt)
+    :return: list
+    """
     sorting = True
     while sorting:
         sorting = False
