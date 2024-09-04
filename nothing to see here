@@ -47,3 +47,94 @@ list_ = mix(list_)
 print(list_)
 list_ = selection_sort(list_)
 print(list_)
+
+
+"""-----------------------------------------------------------------------------------------------------------_"""
+import random as rnd
+
+def selection_sort(lst: list) -> list:
+    """
+    Sorts the a list in a rising order
+    :param list_: an unordered list consisting of numbers (int)
+    :return list
+    """
+    list_ = lst
+    ret_list_ = []
+    for i in range(0, len(list_)):
+        index_value = list_[0]
+        for n in range(0, len(list_)):
+            if list_[n] < index_value:
+                index_value = list_[n]
+        list_.remove(index_value)
+        ret_list_.append(index_value)
+    return ret_list_
+
+def selection_improved(lst: list[int]) -> list[int]:
+    list_ = lst
+     for i in range(0, len(list_)):
+         for n in range(0, i):
+             if list_[i]
+             
+             
+             
+
+def ordered_list(starting_value: int, length: int) -> list:
+    """
+    Creates am ordered list with a given length, beginning at a given value
+    :param starting_value: first (smallest) number in the list
+    :param length: How many elements there are in the list
+    :return list
+    """
+    list_ = []
+    for i in range(starting_value, starting_value + length):
+        list_.append(i)
+    return list_
+
+
+def mix(list_: list) -> list:
+    """
+    Takes a list and rearranges the elements in a random order
+    USES AND AUXILIARY ARRAY
+    :param list_: any list with any elements, only one Dimension will be shuffled
+    :return: list
+    """
+    ret_list_ = []
+    for i in range(0, len(list_)):
+        ret_list_.append(list_.pop(rnd.randint(0, len(list_) - 1)))
+
+    return ret_list_
+
+def insertion_sort(lst: list) -> list:
+    list_ = lst
+    for i in range(0, len(list_)):
+        item = list_[i]
+        for j in range(0, i):
+            if item < list_[j]:
+                list_.remove(item)
+                list_ = list_[:j] + [item] + list_[j:]
+                break
+    return list_
+
+def bubble_sort(lst: list) -> list:
+    list_ = lst
+    swapped = True
+    while swapped:
+        swapped = False
+        for i in range(1, len(list_)):
+            if list_[i-1] > list_[i]:
+                swapped = True               
+                list_[i-1], list_[i] = list_[i], list_[i-1]
+                    
+    return list_
+                
+    
+    
+                
+        
+                   
+
+list_ = ordered_list(1, 10)
+list_ = mix(list_)
+print(list_)
+list_ = bubble_sort(list_)
+print(list_)
