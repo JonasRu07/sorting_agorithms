@@ -44,7 +44,9 @@ def is_truly_sorted(lst: list) -> bool:
     :param lst: list (only int/flt)
     :return: boolean
     """
-    for i in range(len(lst)-1):
-        if lst[i+1] < lst[i]:
+    for i in range(1, len(lst)):
+        if lst[i] < lst[i-1]:
             return False
     return True
+
+print(is_truly_sorted([1,2,3,2]))
