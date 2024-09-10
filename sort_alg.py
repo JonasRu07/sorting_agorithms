@@ -87,3 +87,28 @@ def devide_sort(lst: list) -> list:
         else:
             return_list = return_list + slice_a
         return return_list
+
+def quick_sort(lst):
+    """
+    just quicksort; recursiv
+    :param lst list, which will be sorted
+    :return: list
+    """
+    if len(lst) > 0:
+    #zerlegen
+        pivot = lst[0]
+        smaller_than_pivot = []
+        bigger_than_pivot = []
+        for i in range(1, len(lst)):
+            if lst[i] < pivot:
+                smaller_than_pivot.append(lst[i])
+            else:
+                bigger_than_pivot.append(lst[i])
+        smaller_than_pivot_sorted = quick_sort(smaller_than_pivot)
+        bigger_than_pivot_sorted = quick_sort(bigger_than_pivot)
+        lst_sorted = smaller_than_pivot_sorted + [pivot] + bigger_than_pivot_sorted
+    else:
+        
+        lst_sorted = lst
+    
+    return lst_sorted
