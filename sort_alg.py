@@ -61,9 +61,11 @@ def last_sort(lst: list) -> list:
         a = lst[0]
     return lst
 
-def quick_sort(lst: list) -> list:
+def devide_sort(lst: list) -> list:
     """
-    Quick sort algorithm; recursive
+    divide sort algorithm; recursive
+    It devides the list up to lenght 1, than adds than bag togehter
+    while sorting it
     :param lst: list consisting of any numbers
     :return: list
     """
@@ -71,8 +73,8 @@ def quick_sort(lst: list) -> list:
         return lst
     else:
         return_list = []
-        slice_a = quick_sort(lst[:int(len(lst)/2)])
-        slice_b = quick_sort(lst[int(len(lst)/2):])
+        slice_a = devide_sort(lst[:int(len(lst)/2)])
+        slice_b = devide_sort(lst[int(len(lst)/2):])
 
         while len(slice_a) > 0 and len(slice_b) > 0:
             if slice_a[0] < slice_b[0]:
