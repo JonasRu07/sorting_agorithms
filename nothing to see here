@@ -272,6 +272,101 @@ def quick_sort(lst: list) -> list:
         
         
 
+---------------------------------------
+
+
+
+
+import random as rnd
+import time as time
+import sys as sys
+
+sys.setrecursionlimit(10_000)
+
+def quick_sort(lst: list) -> list:
+    """
+    Quick sort algorithm; recursive
+    :param lst: list consisting of any numbers
+    :return: list
+    """
+    if len(lst) <= 1:
+        return lst
+    else:
+        return_list = []
+        slice_a = quick_sort(lst[:int(len(lst)/2)])
+        slice_b = quick_sort(lst[int(len(lst)/2):])
+
+        while len(slice_a) > 0 and len(slice_b) > 0:
+            if slice_a[0] < slice_b[0]:
+                return_list.append(slice_a.pop(0))
+            else:
+                return_list.append(slice_b.pop(0))
+
+        if len(slice_a) == 0:
+            return_list = return_list + slice_b
+        else:
+            return_list = return_list + slice_a
+        return return_list
+
+def test(lst):
+    if len(lst) > 0:
+    #zerlegen
+        pivot = lst[0]
+        smaller_than_pivot = []
+        bigger_than_pivot = []
+        for i in range(1, len(lst)):
+            if lst[i] < pivot:
+                smaller_than_pivot.append(lst[i])
+            else:
+                bigger_than_pivot.append(lst[i])
+        smaller_than_pivot_sorted = test(smaller_than_pivot)
+        bigger_than_pivot_sorted = test(bigger_than_pivot)
+        lst_sorted = smaller_than_pivot_sorted + [pivot] + bigger_than_pivot_sorted
+    else:
+        
+        lst_sorted = lst
+    
+    return lst_sorted
+        
+        
+        
+def ordered_list(starting_value: int, length: int) -> list:
+    """
+    Creates am ordered list with a given length, beginning at a given value
+    :param starting_value: first (smallest) number in the list
+    :param length: How many elements there are in the list
+    :return list
+    """
+    lst = []
+    for i in range(starting_value, starting_value + length):
+        lst.append(i)
+    return lst    
+
+
+def shuffle(lst: list) -> list:
+    """
+    Takes a list and shuffles the item in a random order
+    :param lst: any list with any elements, only one Dimension will be shuffled
+    :return: list
+    """
+    for i in range(1, len(lst)):
+        index_element = rnd.randint(0, len(lst) - i)
+        lst = lst[:index_element] + lst[index_element+1:] + [lst[index_element]]
+    return lst
+
+list_ = ordered_list(1, 50_000)
+list_.pop()
+#print(list_)
+list_1 = list_
+list_2 = list_
+print("sort start")
+start_time = time.time()
+test(list_1)
+print("schule", time.time() - start_time)
+start_time = time.time()
+quick_sort(list_2)
+print("ich", time.time() - start_time)
+
 
 
 
